@@ -40,7 +40,7 @@ from sklearn.utils.validation import (
     _check_method_params,
 )
 from sklearn.utils import check_array, _safe_indexing
-from sklearn.utils.fixes import delayed
+from sklearn.utils.parallel import delayed
 from sklearn.metrics._scorer import _check_multimetric_scoring
 
 from scipy.sparse import issparse
