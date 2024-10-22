@@ -41,7 +41,7 @@ from sklearn.utils.validation import (
 )
 from sklearn.utils import check_array, _safe_indexing
 from sklearn.utils.parallel import delayed
-from sklearn.metrics._scorer import _check_multimetric_scoring
+from sklearn.metrics._scorer import _check_multimetric_scoring, _MultimetricScorer
 
 from scipy.sparse import issparse
 
@@ -366,6 +366,7 @@ class ExperimentalEmulator(Experiment):
                 scorers = check_scoring(predictor, scoring)
             else:
                 scorers = _check_multimetric_scoring(predictor, scoring)
+                scorers = _MultimetricScorer(scorers=scorers)
             scores_list.append(_score(predictor, X_test, y_test, scorers, score_params = None))
         scores_dict = _aggregate_score_dicts(scores_list)
         for name in scoring:
