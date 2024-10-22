@@ -366,7 +366,7 @@ class ExperimentalEmulator(Experiment):
                 scorers = check_scoring(predictor, scoring)
             else:
                 scorers = _check_multimetric_scoring(predictor, scoring)
-            scores_list.append(_score(predictor, X_test, y_test, scorers))
+            scores_list.append(_score(predictor, X_test, y_test, scorers, score_params = None))
         scores_dict = _aggregate_score_dicts(scores_list)
         for name in scoring:
             scores = scores_dict.pop(name)
